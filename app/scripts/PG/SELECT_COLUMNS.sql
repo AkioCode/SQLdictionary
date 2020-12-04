@@ -90,5 +90,6 @@ WITH const_col as (
 	FROM 
 		const_group con
 ORDER BY 
-	con."TABLE"
+	con."SCHEMA"
+	,con."TABLE"
 	,con."NAME"
