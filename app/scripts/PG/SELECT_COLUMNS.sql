@@ -38,7 +38,7 @@ WITH const_col as (
 			cco.tabela = ('"'||col.table_name||'"') 
 			AND cco.coluna = col.column_name
 	WHERE 
-		col.table_schema = 'public'
+		col.table_schema NOT IN ('pg_catalog', 'information_schema')
 	GROUP BY
 		col.column_name
 		,col.character_maximum_length
