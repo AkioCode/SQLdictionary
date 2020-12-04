@@ -1,13 +1,3 @@
-/*
-====================================================================================
-SGBD: PostgreSQL
-CARTÃO: DB-651
-DESCRIÇÃO: Retorna dicionário de dados apenas referente a colunas das tabelas, semelhante ao Pg_modeler
-TIPO SCRIPT: DQL
-====================================================================================
-*/
-
-
 WITH const_col as ( 
 	SELECT 
 		'"'||pcl.relname||'"'		as tabela
