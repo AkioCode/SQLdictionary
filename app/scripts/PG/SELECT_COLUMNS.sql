@@ -31,7 +31,8 @@ WITH const_col as (
 	FROM
 		information_schema."columns" col
 		LEFT JOIN pg_description des ON 
-			des.objoid = ('"'||col.table_name||'"')::regclass
+			(des.classoid = ('"'||col.table_name||'"')::regclass
+			OR des.classoid = ('"'||col.table_schema||'"."'||col.table_name||'"')::regclass)
 			AND des.objsubid = col.ordinal_position
 		LEFT JOIN const_col cco ON
 			cco.tabela = ('"'||col.table_name||'"') 
